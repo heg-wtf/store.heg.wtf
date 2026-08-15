@@ -1,0 +1,65 @@
+---
+import '../styles/global.css';
+import { LOCALES, DEFAULT_LOCALE, t, type Locale } from '../data/i18n';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+}
+
+const { locale, title, description } = Astro.props;
+const htmlLang = locale === 'ko' ? 'ko-KR' : locale === 'ja' ? 'ja-JP' : 'en-US';
+const localeHref = (l: Locale) => (l === DEFAULT_LOCALE ? '/' : `/${l}/`);
+---
+
+<!doctype html>
+<html lang={htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0f1011" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href={new URL(localeHref(locale), Astro.site)} />
+    {
+      LOCALES.map((l) => (
+        <link rel="alternate" hreflang={l} href={new URL(localeHref(l), Astro.site)} />
+      ))
+    }
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="wordmark" href={localeHref(locale)} translate="no">HEG&nbsp;Store</a>
+        <nav class="locale-switch" aria-label="Language">
+          {
+            LOCALES.map((l) => (
+              <a
+                href={localeHref(l)}
+                aria-current={l === locale ? 'true' : undefined}
+                translate="no"
+              >
+                {l.toUpperCase()}
+              </a>
+            ))
+          }
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <span>{t('checkoutNote', locale)}</span>
+        <span translate="no">© {new Date().getFullYear()} Hyper Engineering Group</span>
+      </div>
+    </footer>
+  </body>
+</html>

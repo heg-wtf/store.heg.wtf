@@ -1,0 +1,52 @@
+[
+  {
+    "id": "tee-01",
+    "type": "pod",
+    "status": "draft",
+    "image": null,
+    "name": { "ko": "HEG 로고 티셔츠", "en": "HEG Logo Tee", "ja": "HEG ロゴTシャツ" },
+    "blurb": {
+      "ko": "주문 후 제작해서 보냅니다.",
+      "en": "Made to order, then shipped.",
+      "ja": "受注後に製作して発送します。"
+    },
+    "price": { "KRW": 35000, "USD": 26, "JPY": 3900 },
+    "options": ["S", "M", "L", "XL", "XXL"],
+    "checkoutUrl": null
+  },
+  {
+    "id": "cap-01",
+    "type": "pod",
+    "status": "draft",
+    "image": null,
+    "name": { "ko": "HEG 캡", "en": "HEG Cap", "ja": "HEG キャップ" },
+    "blurb": {
+      "ko": "주문 후 제작해서 보냅니다.",
+      "en": "Made to order, then shipped.",
+      "ja": "受注後に製作して発送します。"
+    },
+    "price": { "KRW": 32000, "USD": 24, "JPY": 3600 },
+    "options": ["One size"],
+    "checkoutUrl": null
+  },
+  {
+    "id": "keycap-01",
+    "type": "preorder",
+    "status": "draft",
+    "image": null,
+    "name": {
+      "ko": "HEG 아티산 키캡",
+      "en": "HEG Artisan Keycap",
+      "ja": "HEG アルチザンキーキャップ"
+    },
+    "blurb": {
+      "ko": "선주문 상품입니다. 최소 수량에 못 미치면 전액 환불합니다.",
+      "en": "Pre-order. Full refund if the minimum order quantity is not met.",
+      "ja": "予約商品です。最低数量に達しない場合は全額返金します。"
+    },
+    "price": { "KRW": 55000, "USD": 42, "JPY": 6200 },
+    "options": ["Cherry MX"],
+    "moq": 30,
+    "checkoutUrl": null
+  }
+]

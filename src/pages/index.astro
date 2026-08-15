@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro';
+import StoreFront from '../components/StoreFront.astro';
+import { DEFAULT_LOCALE, t } from '../data/i18n';
+---
+
+<Base locale={DEFAULT_LOCALE} title="HEG Store" description={t('tagline', DEFAULT_LOCALE)}>
+  <StoreFront locale={DEFAULT_LOCALE} />
+</Base>

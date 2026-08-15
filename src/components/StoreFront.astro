@@ -1,0 +1,26 @@
+---
+import ProductCard from './ProductCard.astro';
+import { t, type Locale } from '../data/i18n';
+import { listProducts } from '../data/products';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+// Drafts stay visible until real product data lands; flip this when the store opens.
+const products = listProducts({ includeDrafts: true });
+---
+
+<section class="hero">
+  <div class="wrap">
+    <h1>{t('tagline', locale)}</h1>
+    <p>{t('shipping', locale)}</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="grid">
+    {products.map((product) => <ProductCard product={product} locale={locale} />)}
+  </div>
+</div>

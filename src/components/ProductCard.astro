@@ -1,0 +1,52 @@
+---
+import { t, formatPrice, CURRENCY, type Locale } from '../data/i18n';
+import type { Product } from '../data/products';
+
+interface Props {
+  product: Product;
+  locale: Locale;
+}
+
+const { product, locale } = Astro.props;
+const price = product.price[CURRENCY[locale]];
+const href = product.checkoutUrl;
+const label = product.type === 'preorder' ? t('preorder', locale) : t('buy', locale);
+---
+
+<article class="card">
+  <div class="card-media">
+    {
+      product.image ? (
+        <img
+          src={product.image}
+          alt={product.name[locale]}
+          width="600"
+          height="600"
+          loading="lazy"
+        />
+      ) : (
+        <span aria-hidden="true">no image yet</span>
+      )
+    }
+  </div>
+  <div class="card-body">
+    {product.type === 'preorder' && <span class="badge">{t('preorder', locale)}</span>}
+    <h2 class="card-title">{product.name[locale]}</h2>
+    <span class="card-price">{formatPrice(price, locale)}</span>
+    <p class="card-blurb">{product.blurb[locale]}</p>
+    <div class="card-options">
+      {product.options.map((o) => <span translate="no">{o}</span>)}
+    </div>
+    {
+      href ? (
+        <a class="buy" href={href} rel="noopener">
+          {label}
+        </a>
+      ) : (
+        <span class="buy" aria-disabled="true" role="button">
+          {t('soon', locale)}
+        </span>
+      )
+    }
+  </div>
+</article>

@@ -1,0 +1,15 @@
+---
+import Base from '../../layouts/Base.astro';
+import StoreFront from '../../components/StoreFront.astro';
+import { LOCALES, DEFAULT_LOCALE, t, type Locale } from '../../data/i18n';
+
+export function getStaticPaths() {
+  return LOCALES.filter((l) => l !== DEFAULT_LOCALE).map((locale) => ({ params: { locale } }));
+}
+
+const locale = Astro.params.locale as Locale;
+---
+
+<Base locale={locale} title="HEG Store" description={t('tagline', locale)}>
+  <StoreFront locale={locale} />
+</Base>
