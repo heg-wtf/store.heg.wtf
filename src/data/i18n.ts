@@ -24,11 +24,6 @@ export const T = {
     en: 'Ships to Korea, the US and Japan',
     ja: '韓国・アメリカ・日本へ発送',
   },
-  photoNote: {
-    ko: '상품 사진은 자리표시용 예시입니다. 실제 제품 사진으로 교체 예정입니다.',
-    en: 'Product photos are placeholders and will be replaced with real product shots.',
-    ja: '商品写真は仮のものです。実際の製品写真に差し替えます。',
-  },
   view: { ko: '자세히 보기', en: 'View', ja: '詳しく見る' },
   back: { ko: '← 스토어로', en: '← Back to store', ja: '← ストアへ' },
   details: { ko: '상품 정보', en: 'Product details', ja: '商品情報' },
@@ -50,11 +45,6 @@ export const T = {
   },
   moqCount: { ko: '최소 수량', en: 'Minimum quantity', ja: '最低数量' },
   units: { ko: '개', en: 'units', ja: '個' },
-  checkoutNote: {
-    ko: '결제는 외부 결제 페이지에서 진행됩니다. 이 사이트는 카드 정보를 받지 않습니다.',
-    en: 'Checkout happens on an external payment page. This site never handles card details.',
-    ja: '決済は外部の決済ページで行われます。当サイトはカード情報を扱いません。',
-  },
 } as const;
 
 export type Dict = keyof typeof T;
