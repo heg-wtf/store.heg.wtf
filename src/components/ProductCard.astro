@@ -1,5 +1,5 @@
 ---
-import { t, formatPrice, CURRENCY, type Locale } from '../data/i18n';
+import { t, formatPrice, CURRENCY, localePath, type Locale } from '../data/i18n';
 import type { Product } from '../data/products';
 
 interface Props {
@@ -9,12 +9,16 @@ interface Props {
 
 const { product, locale } = Astro.props;
 const price = product.price[CURRENCY[locale]];
-const href = product.checkoutUrl;
-const label = product.type === 'preorder' ? t('preorder', locale) : t('buy', locale);
+const detailHref = localePath(locale, `products/${product.id}/`);
+const state = product.checkoutUrl
+  ? product.type === 'preorder'
+    ? t('preorder', locale)
+    : t('buy', locale)
+  : t('soon', locale);
 ---
 
 <article class="card">
-  <div class="card-media">
+  <a class="card-media" href={detailHref} aria-label={product.name[locale]}>
     {
       product.image ? (
         <img
@@ -29,36 +33,18 @@ const label = product.type === 'preorder' ? t('preorder', locale) : t('buy', loc
         <span aria-hidden="true">no image yet</span>
       )
     }
-  </div>
+  </a>
   <div class="card-body">
     {product.type === 'preorder' && <span class="badge">{t('preorder', locale)}</span>}
-    <h2 class="card-title">{product.name[locale]}</h2>
+    <h2 class="card-title">
+      <a href={detailHref}>{product.name[locale]}</a>
+    </h2>
     <span class="card-price">{formatPrice(price, locale)}</span>
     <p class="card-blurb">{product.blurb[locale]}</p>
     <div class="card-options">
       {product.options.map((o) => <span translate="no">{o}</span>)}
     </div>
-    {
-      href ? (
-        <a class="buy" href={href} rel="noopener">
-          {label}
-        </a>
-      ) : (
-        <span class="buy" aria-disabled="true" role="button">
-          {t('soon', locale)}
-        </span>
-      )
-    }
-    {
-      product.imageCredit && (
-        <p class="card-credit">
-          Photo:{' '}
-          <a href={product.imageCredit.source} rel="noopener nofollow" translate="no">
-            {product.imageCredit.author}
-          </a>{' '}
-          <span translate="no">({product.imageCredit.license})</span>
-        </p>
-      )
-    }
+    <a class="buy" href={detailHref}>{t('view', locale)}</a>
+    <p class="card-state">{state}</p>
   </div>
 </article>

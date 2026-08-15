@@ -25,6 +25,20 @@
       "author": "THOR",
       "license": "CC BY 2.0",
       "source": "https://commons.wikimedia.org/wiki/File:Ringflash_Tshirt_Blank_Template_(3214240974).jpg"
+    },
+    "description": {
+      "ko": [
+        "앞면에 HEG 워드마크만 넣은 무지 티셔츠입니다. 링스펀 코튼 바디에 DTG 인쇄로 찍습니다.",
+        "밝은 바디와 어두운 바디는 인쇄 판이 달라서 색이 미세하게 다르게 나옵니다."
+      ],
+      "en": [
+        "A plain tee with the HEG wordmark on the front. Ring-spun cotton body, direct-to-garment print.",
+        "Light and dark bodies use different print plates, so the ink reads slightly differently on each."
+      ],
+      "ja": [
+        "前面にHEGワードマークのみを入れた無地Tシャツです。リングスパンコットンにDTGプリント。",
+        "明るいボディと暗いボディでは版が異なるため、色味がわずかに変わります。"
+      ]
     }
   },
   {
@@ -53,6 +67,20 @@
       "author": "Will Daan",
       "license": "CC BY-SA 3.0",
       "source": "https://commons.wikimedia.org/wiki/File:Blue_baseball_cap_on_wooden_table.jpg"
+    },
+    "description": {
+      "ko": [
+        "6패널 캡에 자수로 마크를 올립니다. 스트랩으로 사이즈를 조절합니다.",
+        "자수는 인쇄보다 디테일이 뭉개지기 쉬워서 마크를 단순화한 버전을 씁니다."
+      ],
+      "en": [
+        "A six-panel cap with an embroidered mark. Adjustable strap, one size.",
+        "Embroidery loses fine detail faster than print, so the cap uses a simplified version of the mark."
+      ],
+      "ja": [
+        "6パネルキャップに刺繍でマークを入れます。ストラップでサイズ調整。",
+        "刺繍はプリントより細部が潰れやすいため、簡略化したマークを使用します。"
+      ]
     }
   },
   {
@@ -82,6 +110,20 @@
       "author": "Triple-green",
       "license": "CC BY 2.0",
       "source": "https://commons.wikimedia.org/wiki/File:Cherry_Profile_Double_-_Shot_PBT_Full_Set_Keycaps_-_Camel.jpg"
+    },
+    "description": {
+      "ko": [
+        "Cherry MX 스템에 맞는 아티산 키캡입니다. 수지 주조로 소량 제작합니다.",
+        "공장 제작이라 최소 수량이 걸려 있고, 그래서 이 상품만 선주문으로 받습니다."
+      ],
+      "en": [
+        "An artisan keycap for Cherry MX stems, cast in resin in small batches.",
+        "Factory production carries a minimum order quantity, which is why this one item is sold as a pre-order."
+      ],
+      "ja": [
+        "Cherry MXステム対応のアルチザンキーキャップ。レジン成型で少量製作します。",
+        "工場生産のため最低数量があり、この商品のみ予約販売とします。"
+      ]
     }
   }
 ]

@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProductDetail from '../../components/ProductDetail.astro';
+import { DEFAULT_LOCALE } from '../../data/i18n';
+import { listProducts, type Product } from '../../data/products';
+
+export function getStaticPaths() {
+  return listProducts({ includeDrafts: true }).map((product) => ({
+    params: { id: product.id },
+    props: { product },
+  }));
+}
+
+const { product } = Astro.props as { product: Product };
+const locale = DEFAULT_LOCALE;
+---
+
+<Base
+  locale={locale}
+  title={`${product.name[locale]} — HEG Store`}
+  description={product.blurb[locale]}
+  slug={`products/${product.id}/`}
+>
+  <ProductDetail product={product} locale={locale} />
+</Base>

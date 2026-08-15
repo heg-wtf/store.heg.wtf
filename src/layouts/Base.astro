@@ -1,16 +1,18 @@
 ---
 import '../styles/global.css';
-import { LOCALES, DEFAULT_LOCALE, t, type Locale } from '../data/i18n';
+import { LOCALES, t, localePath, type Locale } from '../data/i18n';
 
 interface Props {
   locale: Locale;
   title: string;
   description: string;
+  /** Path after the locale segment, e.g. 'products/tee-01/'. Empty for the home page. */
+  slug?: string;
 }
 
-const { locale, title, description } = Astro.props;
+const { locale, title, description, slug = '' } = Astro.props;
 const htmlLang = locale === 'ko' ? 'ko-KR' : locale === 'ja' ? 'ja-JP' : 'en-US';
-const localeHref = (l: Locale) => (l === DEFAULT_LOCALE ? '/' : `/${l}/`);
+const localeHref = (l: Locale) => localePath(l, slug);
 ---
 
 <!doctype html>
@@ -34,7 +36,7 @@ const localeHref = (l: Locale) => (l === DEFAULT_LOCALE ? '/' : `/${l}/`);
   <body>
     <header class="site-header">
       <div class="wrap">
-        <a class="wordmark" href={localeHref(locale)} translate="no">HEG&nbsp;Store</a>
+        <a class="wordmark" href={localePath(locale)} translate="no">HEG&nbsp;Store</a>
         <nav class="locale-switch" aria-label="Language">
           {
             LOCALES.map((l) => (

@@ -11,6 +11,8 @@ export interface Product {
   imageCredit: { author: string; license: string; source: string } | null;
   name: Record<Locale, string>;
   blurb: Record<Locale, string>;
+  /** Paragraphs shown on the detail page. */
+  description: Record<Locale, string[]>;
   price: { KRW: number; USD: number; JPY: number };
   options: string[];
   moq?: number;
@@ -19,6 +21,10 @@ export interface Product {
 }
 
 const products = raw as Product[];
+
+export function findProduct(id: string): Product | undefined {
+  return products.find((p) => p.id === id);
+}
 
 export function listProducts({ includeDrafts = false } = {}): Product[] {
   return includeDrafts ? products : products.filter((p) => p.status === 'published');

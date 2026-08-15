@@ -1,0 +1,98 @@
+---
+import { t, formatPrice, CURRENCY, localePath, type Locale } from '../data/i18n';
+import type { Product } from '../data/products';
+
+interface Props {
+  product: Product;
+  locale: Locale;
+}
+
+const { product, locale } = Astro.props;
+const price = product.price[CURRENCY[locale]];
+const href = product.checkoutUrl;
+const label = product.type === 'preorder' ? t('preorder', locale) : t('buy', locale);
+const isPreorder = product.type === 'preorder';
+---
+
+<div class="wrap">
+  <a class="back" href={localePath(locale)}>{t('back', locale)}</a>
+
+  <div class="detail">
+    <div class="detail-media">
+      {
+        product.image ? (
+          <img
+            src={product.image}
+            alt={product.name[locale]}
+            width="900"
+            height="900"
+            decoding="async"
+          />
+        ) : (
+          <span aria-hidden="true">no image yet</span>
+        )
+      }
+    </div>
+
+    <div class="detail-body">
+      {isPreorder && <span class="badge">{t('preorder', locale)}</span>}
+      <h1 class="detail-title">{product.name[locale]}</h1>
+      <p class="detail-price">{formatPrice(price, locale)}</p>
+
+      <section class="detail-section">
+        <h2>{t('details', locale)}</h2>
+        {product.description[locale].map((para) => <p>{para}</p>)}
+        {!isPreorder && <p>{t('madeToOrder', locale)}</p>}
+      </section>
+
+      <section class="detail-section">
+        <h2>{t('optionsLabel', locale)}</h2>
+        <div class="card-options">
+          {product.options.map((o) => <span translate="no">{o}</span>)}
+        </div>
+      </section>
+
+      {
+        isPreorder && (
+          <section class="detail-section detail-terms">
+            <h2>{t('preorderTerms', locale)}</h2>
+            {product.moq && (
+              <p class="detail-moq">
+                {t('moqCount', locale)}:{' '}
+                <strong translate="no">
+                  {product.moq} {t('units', locale)}
+                </strong>
+              </p>
+            )}
+            <p>{t('moqNote', locale)}</p>
+          </section>
+        )
+      }
+
+      {
+        href ? (
+          <a class="buy" href={href} rel="noopener">
+            {label}
+          </a>
+        ) : (
+          <span class="buy" aria-disabled="true" role="button">
+            {t('soon', locale)}
+          </span>
+        )
+      }
+      <p class="detail-note">{t('shipping', locale)}</p>
+      <p class="detail-note">{t('checkoutNote', locale)}</p>
+      {
+        product.imageCredit && (
+          <p class="card-credit">
+            Photo:{' '}
+            <a href={product.imageCredit.source} rel="noopener nofollow" translate="no">
+              {product.imageCredit.author}
+            </a>{' '}
+            <span translate="no">({product.imageCredit.license})</span>
+          </p>
+        )
+      }
+    </div>
+  </div>
+</div>
