@@ -20,9 +20,10 @@ const label = product.type === 'preorder' ? t('preorder', locale) : t('buy', loc
         <img
           src={product.image}
           alt={product.name[locale]}
-          width="600"
-          height="600"
+          width="900"
+          height="900"
           loading="lazy"
+          decoding="async"
         />
       ) : (
         <span aria-hidden="true">no image yet</span>
@@ -46,6 +47,17 @@ const label = product.type === 'preorder' ? t('preorder', locale) : t('buy', loc
         <span class="buy" aria-disabled="true" role="button">
           {t('soon', locale)}
         </span>
+      )
+    }
+    {
+      product.imageCredit && (
+        <p class="card-credit">
+          Photo:{' '}
+          <a href={product.imageCredit.source} rel="noopener nofollow" translate="no">
+            {product.imageCredit.author}
+          </a>{' '}
+          <span translate="no">({product.imageCredit.license})</span>
+        </p>
       )
     }
   </div>

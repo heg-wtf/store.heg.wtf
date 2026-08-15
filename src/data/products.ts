@@ -7,6 +7,8 @@ export interface Product {
   type: 'pod' | 'preorder';
   status: 'draft' | 'published';
   image: string | null;
+  /** Attribution for a placeholder photo we do not own. Null once we shoot our own. */
+  imageCredit: { author: string; license: string; source: string } | null;
   name: Record<Locale, string>;
   blurb: Record<Locale, string>;
   price: { KRW: number; USD: number; JPY: number };

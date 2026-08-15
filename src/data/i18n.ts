@@ -1,7 +1,7 @@
 export const LOCALES = ['ko', 'en', 'ja'] as const;
 export type Locale = (typeof LOCALES)[number];
 
-export const DEFAULT_LOCALE: Locale = 'ko';
+export const DEFAULT_LOCALE: Locale = 'en';
 
 /** Price is shown in the currency that matches the locale. */
 export const CURRENCY: Record<Locale, 'KRW' | 'USD' | 'JPY'> = {
@@ -23,6 +23,11 @@ export const T = {
     ko: '한국·미국·일본 배송',
     en: 'Ships to Korea, the US and Japan',
     ja: '韓国・アメリカ・日本へ発送',
+  },
+  photoNote: {
+    ko: '상품 사진은 자리표시용 예시입니다. 실제 제품 사진으로 교체 예정입니다.',
+    en: 'Product photos are placeholders and will be replaced with real product shots.',
+    ja: '商品写真は仮のものです。実際の製品写真に差し替えます。',
   },
   checkoutNote: {
     ko: '결제는 외부 결제 페이지에서 진행됩니다. 이 사이트는 카드 정보를 받지 않습니다.',

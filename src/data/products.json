@@ -3,37 +3,63 @@
     "id": "tee-01",
     "type": "pod",
     "status": "draft",
-    "image": null,
-    "name": { "ko": "HEG 로고 티셔츠", "en": "HEG Logo Tee", "ja": "HEG ロゴTシャツ" },
+    "image": "/images/tee.jpg",
+    "name": {
+      "ko": "HEG 로고 티셔츠",
+      "en": "HEG Logo Tee",
+      "ja": "HEG ロゴTシャツ"
+    },
     "blurb": {
       "ko": "주문 후 제작해서 보냅니다.",
       "en": "Made to order, then shipped.",
       "ja": "受注後に製作して発送します。"
     },
-    "price": { "KRW": 35000, "USD": 26, "JPY": 3900 },
+    "price": {
+      "KRW": 35000,
+      "USD": 26,
+      "JPY": 3900
+    },
     "options": ["S", "M", "L", "XL", "XXL"],
-    "checkoutUrl": null
+    "checkoutUrl": null,
+    "imageCredit": {
+      "author": "THOR",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ringflash_Tshirt_Blank_Template_(3214240974).jpg"
+    }
   },
   {
     "id": "cap-01",
     "type": "pod",
     "status": "draft",
-    "image": null,
-    "name": { "ko": "HEG 캡", "en": "HEG Cap", "ja": "HEG キャップ" },
+    "image": "/images/cap.jpg",
+    "name": {
+      "ko": "HEG 캡",
+      "en": "HEG Cap",
+      "ja": "HEG キャップ"
+    },
     "blurb": {
       "ko": "주문 후 제작해서 보냅니다.",
       "en": "Made to order, then shipped.",
       "ja": "受注後に製作して発送します。"
     },
-    "price": { "KRW": 32000, "USD": 24, "JPY": 3600 },
+    "price": {
+      "KRW": 32000,
+      "USD": 24,
+      "JPY": 3600
+    },
     "options": ["One size"],
-    "checkoutUrl": null
+    "checkoutUrl": null,
+    "imageCredit": {
+      "author": "Will Daan",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Blue_baseball_cap_on_wooden_table.jpg"
+    }
   },
   {
     "id": "keycap-01",
     "type": "preorder",
     "status": "draft",
-    "image": null,
+    "image": "/images/keycap.jpg",
     "name": {
       "ko": "HEG 아티산 키캡",
       "en": "HEG Artisan Keycap",
@@ -44,9 +70,18 @@
       "en": "Pre-order. Full refund if the minimum order quantity is not met.",
       "ja": "予約商品です。最低数量に達しない場合は全額返金します。"
     },
-    "price": { "KRW": 55000, "USD": 42, "JPY": 6200 },
+    "price": {
+      "KRW": 55000,
+      "USD": 42,
+      "JPY": 6200
+    },
     "options": ["Cherry MX"],
     "moq": 30,
-    "checkoutUrl": null
+    "checkoutUrl": null,
+    "imageCredit": {
+      "author": "Triple-green",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Cherry_Profile_Double_-_Shot_PBT_Full_Set_Keycaps_-_Camel.jpg"
+    }
   }
 ]
